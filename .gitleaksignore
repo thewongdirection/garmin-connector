@@ -1,0 +1,4 @@
+# Verified false positives: inline test literals in the first commit of PR #1,
+# since replaced by FAKE_* constants in tests/conftest.py. Neither is a real key.
+70e44976c5b4c0280ed29260f369d8eb5dea9266:tests/test_credentials_cli.py:generic-api-key:43
+70e44976c5b4c0280ed29260f369d8eb5dea9266:tests/test_auth_redact.py:generic-api-key:38
