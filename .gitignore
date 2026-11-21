@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets: never commit keys, tokens or env files
+.env
+.env.*
+*.key
+*.pem
+secrets/
+garmin-key*
+connect-personal-api-key*
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
