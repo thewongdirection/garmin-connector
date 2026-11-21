@@ -9,7 +9,7 @@ from garmin_connector.auth import TokenManager, parse_token_response
 from garmin_connector.errors import GarminAuthError
 from garmin_connector.redact import RedactingFilter, Redactor
 
-from .conftest import FAKE_KEY, FAKE_TOKEN
+from .conftest import FAKE_KEY, FAKE_PLAIN_TOKEN, FAKE_TOKEN
 
 NOW = 1_800_000_000.0
 
@@ -34,8 +34,8 @@ def test_parse_token_response_json_shapes(body: dict[str, object], expected_expi
 
 
 def test_parse_token_response_plain_text() -> None:
-    token, expires_at = parse_token_response(_response(text="tok-plain-123\n"), NOW)
-    assert token == "tok-plain-123"
+    token, expires_at = parse_token_response(_response(text=f"{FAKE_PLAIN_TOKEN}\n"), NOW)
+    assert token == FAKE_PLAIN_TOKEN
     assert expires_at == NOW + config.TOKEN_DEFAULT_LIFETIME_SECONDS
 
 

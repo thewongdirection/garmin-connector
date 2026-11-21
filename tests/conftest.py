@@ -20,6 +20,9 @@ from garmin_connector.service import GarminService
 
 FAKE_KEY = "fake-personal-api-key-0123456789"
 FAKE_TOKEN = "fake-access-token-abcdefghijkl"
+FAKE_ENV_KEY = "fake-env-api-key-0123456789"
+FAKE_KEYRING_KEY = "fake-keyring-api-key-0123456789"
+FAKE_PLAIN_TOKEN = "fake-plain-text-token-0123456789"
 TOKEN_URL = config.BASE_URL + config.TOKEN_PATH
 
 

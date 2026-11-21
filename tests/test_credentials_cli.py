@@ -8,7 +8,7 @@ from keyring.errors import KeyringError
 
 from garmin_connector import cli, config, credentials
 
-from .conftest import FAKE_KEY, sleep_record
+from .conftest import FAKE_ENV_KEY, FAKE_KEY, FAKE_KEYRING_KEY, sleep_record
 
 
 class MemoryKeyring:
@@ -39,9 +39,9 @@ def memory_keyring(monkeypatch: pytest.MonkeyPatch) -> MemoryKeyring:
 def test_env_var_wins_over_keyring(
     memory_keyring: MemoryKeyring, monkeypatch: pytest.MonkeyPatch
 ) -> None:
-    credentials.store_api_key("from-keyring-123")
-    monkeypatch.setenv(config.ENV_API_KEY, "  from-env-12345 ")
-    assert credentials.load_api_key() == "from-env-12345"
+    credentials.store_api_key(FAKE_KEYRING_KEY)
+    monkeypatch.setenv(config.ENV_API_KEY, f"  {FAKE_ENV_KEY} ")
+    assert credentials.load_api_key() == FAKE_ENV_KEY
 
 
 def test_keyring_roundtrip_and_delete(memory_keyring: MemoryKeyring) -> None:
